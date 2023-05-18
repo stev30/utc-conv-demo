@@ -42,7 +42,7 @@
 <h1>Timezone Converter</h1>
 
 <select id="timezones">
-  <option value="">Select a timezone</option>
+  <option value="">Select a timezone (mandatory)</option>
   <option value="America/Sao_Paulo">Sao Paulo, Brazil</option>
   <option value="America/Los_Angeles">San Diego, USA</option>
   <option value="Europe/London">London, United Kingdom</option>
@@ -52,7 +52,16 @@
   <option value="Pacific/Auckland">Wellington, New Zealand</option>
 </select>
 
-<input id="userTime" type="text" placeholder="Enter time (24-hour format: HH:mm)">
+<select id="userTime">
+  <option value="">Select a time (optional)</option>
+  <!-- You could add more times here -->
+  <!-- This is just a small sample -->
+  <option value="00:00">00:00</option>
+  <option value="00:30">00:30</option>
+  <!-- ... -->
+  <option value="23:00">23:00</option>
+  <option value="23:30">23:30</option>
+</select>
 
 <button onclick="convertToUTC()">Convert</button>
 
@@ -62,8 +71,8 @@
 <script>
 function convertToUTC() {
   var timezone = document.getElementById("timezones").value;
-  var userTime = document.getElementById("userTime").value;
-  if (timezone && userTime) {
+  var userTime = document.getElementById("userTime").value || new Date().toTimeString().split(" ")[0].substring(0,5);
+  if (timezone) {
     var date = new Date();
     date.setHours(userTime.split(":")[0]);
     date.setMinutes(userTime.split(":")[1]);
