@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Timezone Converter</title>
+</head>
+<body>
+
+<h1>Timezone Converter</h1>
+
+<select id="timezones" onchange="convertToUTC()">
+  <option value="">Select a timezone</option>
+  <!-- You could add more timezones here -->
+  <option value="America/Los_Angeles">Pacific Time</option>
+  <option value="America/New_York">Eastern Time</option>
+  <option value="Europe/London">London</option>
+  <option value="Asia/Tokyo">Tokyo</option>
+</select>
+
+<p id="selectedTime"></p>
+<p id="utcTime"></p>
+
+<script>
+function convertToUTC() {
+  var timezone = document.getElementById("timezones").value;
+  if (timezone) {
+    var date = new Date();
+    var utcDate = new Date(date.toLocaleString('en-US', { timeZone: timezone }));
+    var utcString = utcDate.toUTCString();
+
+    document.getElementById("selectedTime").innerHTML = "Selected Timezone (" + timezone + "): " + utcDate;
+    document.getElementById("utcTime").innerHTML = "Corresponding UTC Time: " + utcString;
+  } else {
+    document.getElementById("selectedTime").innerHTML = "";
+    document.getElementById("utcTime").innerHTML = "";
+  }
+}
+</script>
+
+</body>
+</html>
