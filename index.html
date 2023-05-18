@@ -2,6 +2,28 @@
 <html>
 <head>
     <title>Timezone Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9fc;
+            color: #333;
+            padding: 20px;
+        }
+        h1 {
+            color: #1a0dab;
+        }
+        select {
+            width: 100%;
+            height: 40px;
+            padding: 5px;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+    </style>
 </head>
 <body>
 
@@ -9,11 +31,13 @@
 
 <select id="timezones" onchange="convertToUTC()">
   <option value="">Select a timezone</option>
-  <!-- You could add more timezones here -->
-  <option value="America/Los_Angeles">Pacific Time</option>
-  <option value="America/New_York">Eastern Time</option>
-  <option value="Europe/London">London</option>
-  <option value="Asia/Tokyo">Tokyo</option>
+  <option value="America/Sao_Paulo">Sao Paulo, Brazil</option>
+  <option value="America/Los_Angeles">San Diego, USA</option>
+  <option value="Europe/London">London, United Kingdom</option>
+  <option value="Asia/Shanghai">Beijing, China</option>
+  <option value="Asia/Kolkata">Delhi, India</option>
+  <option value="Australia/Sydney">Sydney, Australia</option>
+  <option value="Pacific/Auckland">Wellington, New Zealand</option>
 </select>
 
 <p id="selectedTime"></p>
